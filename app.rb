@@ -16,7 +16,8 @@ class BookmarkManager < Sinatra::Base
 
   post '/bookmarks' do
     url = params[:url]
-    Bookmark.create(url)
+    title = params[:title]
+    Bookmark.create(title, url)
     erb :bookmarks
   end
 

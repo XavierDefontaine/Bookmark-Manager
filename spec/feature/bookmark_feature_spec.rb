@@ -12,8 +12,10 @@ feature 'Add a new bookmark' do
   scenario 'Add a bookmark' do
     add_urls
     visit('/add_bookmark')
+    fill_in('title', with: 'Apple')
     fill_in('url', with: 'www.apple.com')
     click_button("Submit")
     expect(page).to have_content "www.apple.com"
+    expect(page).to have_content "Apple"
   end
 end
