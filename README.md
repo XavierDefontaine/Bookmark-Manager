@@ -13,3 +13,13 @@ I would like to add the site's address and title to bookmark manager
 
 # Domain model
 ![Image of a basic domain model](https://raw.githubusercontent.com/samcolson4/bookmark-manager/master/images/domain_model_1.png)
+
+# DB set up
+
+ Connect to `psql` and create the `bookmark_manager` database:
+
+ ```
+ CREATE DATABASE bookmark_manager;
+ ```
+
+ To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
