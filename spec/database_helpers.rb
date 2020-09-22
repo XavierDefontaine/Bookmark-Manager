@@ -5,9 +5,16 @@ def truncates
   connection.exec('TRUNCATE TABLE bookmarks')
 end
 
-def add_urls
+def persisted_data(id:)
   connection = PG.connect(dbname: 'bookmark_manager_test')
-  connection.exec("INSERT INTO bookmarks (url,title) VALUES('http://makers.tech','Makers')")
-  connection.exec("INSERT INTO bookmarks (url,title) VALUES('http://www.destroyallsoftware.com','Destroyall')")
-  connection.exec("INSERT INTO bookmarks (url,title) VALUES('http://www.google.com','Google')")
+  result = connection.query("SELECT * FROM bookmarks WHERE id = #{id};")
+  result.first
 end
+
+
+def add_urls
+  Bookmark.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
+  Bookmark.create(url: 'http://www.destroyallsoftware.com', title: 'Destroy All Software')
+  Bookmark.create(url: 'http://www.google.com', title: 'Google')
+end
+
