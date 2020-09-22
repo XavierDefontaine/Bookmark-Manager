@@ -10,3 +10,16 @@ describe '.all' do
     expect(bookmarks).to include "http://www.google.com"
   end
 end
+
+describe '.create(url)' do
+  it 'adds a new bookmark to the class' do
+    add_urls
+    url = "www.apple.com"
+    Bookmark.create(url)
+    bookmarks = Bookmark.all
+    expect(bookmarks).to include "http://makers.tech"
+    expect(bookmarks).to include "http://www.destroyallsoftware.com"
+    expect(bookmarks).to include "http://www.google.com"
+    expect(bookmarks).to include "www.apple.com"
+  end
+end
