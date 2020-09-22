@@ -9,6 +9,10 @@ I want a page that displays the bookmarks
 As a time-pressed user
 So that I can save a website
 I would like to add the site's address and title to bookmark manager
+
+As a user 
+So that I can view bookmarks I've added
+I would like to add a new bookmark
 ```
 
 # Domain model
