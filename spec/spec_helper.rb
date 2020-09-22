@@ -1,4 +1,6 @@
-ENV['RACK_ENV'] = 'test'
+require_relative 'database_helpers'
+
+ENV['ENVIRONMENT'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
@@ -12,6 +14,9 @@ SimpleCov.formatter = SimpleCov::Formatter::Console
 Capybara.app = BookmarkManager
 
 RSpec.configure do |config|
+  config.before(:each) do
+    truncates
+  end
 
   config.expect_with :rspec do |expectations|
   
