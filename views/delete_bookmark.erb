@@ -1,6 +1,6 @@
 <title>Delete a bookmark</title>
 <h1>Add the bookmark title here:</h1>
-<form action="/bookmarks" method="delete">
-  <input type="text" name="title">Title</input>
+<form action="/bookmarks/<%= bookmark.title %>" method="post">
+  <input type="text" name="title" value='delete'>Title</input>
   <input type="submit" value="Delete"></input>
 </form>

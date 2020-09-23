@@ -15,11 +15,16 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks/delete' do
-    erb :delete_bookmark
+    erb :bookmarks
   end
 
   post '/bookmarks' do
     Bookmark.create(url: params[:url], title: params[:title])
+    erb :bookmarks
+  end
+
+  delete '/bookmarks/:title' do
+    Bookmark.delete(title: params[:title])
     erb :bookmarks
   end
 
