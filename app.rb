@@ -10,8 +10,12 @@ class BookmarkManager < Sinatra::Base
     erb :bookmarks
   end
 
-  get '/add_bookmark' do
+  get '/bookmarks/add' do
     erb :add_bookmark
+  end
+
+  get '/bookmarks/delete' do
+    erb :delete_bookmark
   end
 
   post '/bookmarks' do
