@@ -5,7 +5,7 @@ feature 'View /bookmarks route' do
     add_urls 
     visit '/bookmarks'
 
-    expect(page).to have_link('Makers Academy', href: 'http://www.makersacademy.com')
+    expect(page).to have_link('Makers_Academy', href: 'http://www.makersacademy.com')
     expect(page).to have_link('Destroy All Software',  href: 'http://www.destroyallsoftware.com')
     expect(page).to have_link('Google', href: 'http://www.google.com')
   end
@@ -25,10 +25,9 @@ end
 feature 'Delete a bookmark' do
   scenario 'Delete a bookmark' do
     add_urls
-    visit('/bookmarks/delete')
-    fill_in('title', with: 'Google')
-    click_button('Delete')
-    expect(page).to have_link('Makers Academy', href: 'http://www.makersacademy.com')
-    expect(page).to have_no_link('Google', href: 'http://www.google.com')
+    visit('/bookmarks')
+    click_button("Delete", :match => :first)
+    expect(page).to have_no_link('Makers_Academy', href: 'http://www.makersacademy.com')
+    expect(page).to have_link('Google', href: 'http://www.google.com')
   end
 end
