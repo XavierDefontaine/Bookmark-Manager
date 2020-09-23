@@ -31,3 +31,12 @@ describe '.all' do
     expect(bookmark.url).to eq 'http://www.testbookmark.com'
   end
 end
+
+describe '.delete' do
+  it 'deletes a bookmark' do 
+    bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
+    persisted_data = persisted_data(id: bookmark.id)
+    Bookmark.delete(title)
+    expect(bookmark).to be_empty
+  end
+end
