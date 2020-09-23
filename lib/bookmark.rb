@@ -22,7 +22,7 @@ class Bookmark
     end
   end
 
-  def self.create(url:, title:)
+  def self.create(title:, url:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'bookmark_manager_test')
     else
