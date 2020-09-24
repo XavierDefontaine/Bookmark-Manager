@@ -38,9 +38,9 @@ feature 'Update a bookmark' do
   visit('/bookmarks')
   click_button("Update", :match => :first)
   fill_in('title', with: 'Banana')
-  fill_in('title', with: 'http://www.banana.com')
+  fill_in('url', with: 'http://www.banana.com')
   click_button("Submit")
   expect(page).to have_no_link('Makers_Academy', href: 'http://www.makersacademy.com')
-  expect(page).to have_link('Banana', href: 'bhttp://www.banana.com')
+  expect(page).to have_link('Banana', href: 'http://www.banana.com')
   end
 end

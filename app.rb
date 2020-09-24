@@ -28,13 +28,16 @@ class BookmarkManager < Sinatra::Base
     redirect '/bookmarks'
   end
 
-  get '/bookmarks/:title/update' do
-    @bookmark_title = params[:title]
+  get '/bookmarks/:id/update' do
+    @bookmark_id = params[:id]
+    p params
     erb :edit
   end
 
-  patch '/bookmarks/:title' do
+  patch '/bookmarks/:id' do
     p params
+    connection = PG.connect(dbname: 'bookmark_manager_test')
+    connection.exec("UPDATE bookmarks SET url = '#{params[:url]}', title = '#{params[:title]}' WHERE id = '#{params[:id]}'")
     redirect('/bookmarks')
   end
 

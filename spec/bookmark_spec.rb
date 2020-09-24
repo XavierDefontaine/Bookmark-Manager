@@ -39,3 +39,9 @@ describe '.delete' do
     expect(Bookmark.all).to be_empty
   end
 end
+
+describe '.update' do
+  it 'update a bookmark' do
+    
+  end
+end
