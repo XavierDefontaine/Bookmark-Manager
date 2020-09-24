@@ -1,4 +1,5 @@
 require 'pg'
+require 'database_connection'
 
 class Bookmark 
 
@@ -28,9 +29,9 @@ class Bookmark
 
   def self.set_environment
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'bookmark_manager_test')
+      connection = DatabaseConnection.setup 'bookmark_manager_test'
     else
-      connection = PG.connect(dbname: 'bookmark_manager')
+      cconnection = DatabaseConnection.setup 'bookmark_manager'
     end
   end
 
