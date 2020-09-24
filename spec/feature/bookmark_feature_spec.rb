@@ -31,3 +31,16 @@ feature 'Delete a bookmark' do
     expect(page).to have_link('Google', href: 'http://www.google.com')
   end
 end
+
+feature 'Update a bookmark' do
+  scenario 'Update an existing bookmark' do
+  add_urls
+  visit('/bookmarks')
+  click_button("Update", :match => :first)
+  fill_in('title', with: 'Banana')
+  fill_in('title', with: 'http://www.banana.com')
+  click_button("Submit")
+  expect(page).to have_no_link('Makers_Academy', href: 'http://www.makersacademy.com')
+  expect(page).to have_link('Banana', href: 'bhttp://www.banana.com')
+  end
+end

@@ -1,6 +1,18 @@
 require 'bookmark'
 require 'database_helpers'
 
+describe 'create' do
+    it 'creates a new bookmark' do
+      bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
+      persisted_data = persisted_data(id: bookmark.id)
+  
+      expect(bookmark).to be_a Bookmark
+      expect(bookmark.id).to eq persisted_data['id']
+      expect(bookmark.title).to eq 'Test Bookmark'
+      expect(bookmark.url).to eq 'http://www.testbookmark.com'
+    end
+end
+
 describe '.all' do
   it 'returns a list of bookmarks' do
     connection = PG.connect(dbname: 'bookmark_manager_test')
@@ -20,22 +32,9 @@ describe '.all' do
    end
  end
 
- describe '.create' do
-  it 'creates a new bookmark' do
-    bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
-    persisted_data = persisted_data(id: bookmark.id)
-
-    expect(bookmark).to be_a Bookmark
-    expect(bookmark.id).to eq persisted_data['id']
-    expect(bookmark.title).to eq 'Test Bookmark'
-    expect(bookmark.url).to eq 'http://www.testbookmark.com'
-  end
-end
-
 describe '.delete' do
   it 'deletes a bookmark' do 
     bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
-    persisted_data = persisted_data(id: bookmark.id)
     Bookmark.delete(title: bookmark.title)
     expect(Bookmark.all).to be_empty
   end
