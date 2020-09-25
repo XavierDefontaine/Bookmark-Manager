@@ -2,7 +2,7 @@ require 'pg'
 
 def truncates
   connection = PG.connect(dbname: 'bookmark_manager_test')
-  connection.exec('TRUNCATE TABLE bookmarks')
+  connection.exec('TRUNCATE TABLE bookmarks, comments')
 end
 
 def persisted_data(id:)

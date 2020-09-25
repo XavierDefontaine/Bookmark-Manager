@@ -1,9 +1,11 @@
 require './lib/comment.rb'
 require 'pg'
+
+
 describe Comment do
 
   it "initialised with an ID, text and bookmark ID" do
-    comment = Comment.new(1, "text", 2)
+    comment = Comment.new(id: 1, text: "text", bookmark_id: 2)
     expect(comment.id).to eq 1
     expect(comment.text).to eq "text"
     expect(comment.bookmark_id).to eq 2
