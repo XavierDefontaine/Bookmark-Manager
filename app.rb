@@ -22,14 +22,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/bookmarks' do
-    if params['url'] =~ /\A#{URI::regexp(['http', 'https'])}\z/
-    Bookmark.create(url: params[:url], title: params[:title]) 
-    erb :bookmarks 
-    else
-    flash[:notice] = "Incorrect URL" 
-    end
-    erb :bookmarks
-    
+    flash[:notice] = "Incorrect URL." unless Bookmark.create(url: params[:url], title: params[:title])
+    redirect '/bookmarks'
   end
 
   delete '/bookmarks/:title' do

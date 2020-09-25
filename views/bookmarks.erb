@@ -1,5 +1,6 @@
 <% @bookmarks = Bookmark.all %>
 
+<%= flash[:notice] %>
 
 <ul>
   <% @bookmarks.each do |bookmark| %>

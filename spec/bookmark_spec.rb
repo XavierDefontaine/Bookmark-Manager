@@ -12,7 +12,10 @@ describe 'create' do
       expect(bookmark.url).to eq 'http://www.testbookmark.com'
     end
 
-    
+    it 'does not create a new bookmark if invalid' do
+      Bookmark.create(url: 'teszkjhdfjg', title: 'Test')
+      expect(Bookmark.all).to be_empty
+    end
 end
 
 describe '.all' do
