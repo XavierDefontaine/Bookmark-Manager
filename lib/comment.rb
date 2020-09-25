@@ -15,4 +15,11 @@ class Comment
     DatabaseConnection.query("INSERT INTO comments(comment, bookmark_id) VALUES ('#{comment}','#{bookmark_id}');")
   end
 
+  def self.all
+    result = DatabaseConnection.query("SELECT * FROM comments")
+    result.map do |comment|
+      Comment.new(id: comment['id'], comment: comment['comment'], bookmark_id: comment['bookmark_id'])
+    end
+  end
+
 end 

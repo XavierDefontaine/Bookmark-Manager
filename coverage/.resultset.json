@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/student/Documents/week 4/bookmark-manager2/bookmark-manager/spec/bookmark_spec.rb": {
+      "/Users/nicolakeys/Makers/Projects/xav-bookmarks/Bookmark-Manager/spec/bookmark_spec.rb": {
         "lines": [
           1,
           1,
@@ -75,7 +75,7 @@
           null
         ]
       },
-      "/Users/student/Documents/week 4/bookmark-manager2/bookmark-manager/spec/comment_spec.rb": {
+      "/Users/nicolakeys/Makers/Projects/xav-bookmarks/Bookmark-Manager/spec/comment_spec.rb": {
         "lines": [
           1,
           1,
@@ -95,8 +95,8 @@
           1,
           1,
           null,
-          0,
-          0,
+          1,
+          1,
           null,
           null,
           null,
@@ -111,27 +111,7 @@
           null
         ]
       },
-      "/Users/student/Documents/week 4/bookmark-manager2/bookmark-manager/lib/comment.rb": {
-        "lines": [
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/student/Documents/week 4/bookmark-manager2/bookmark-manager/spec/database_connection_spec.rb": {
+      "/Users/nicolakeys/Makers/Projects/xav-bookmarks/Bookmark-Manager/spec/database_connection_spec.rb": {
         "lines": [
           1,
           null,
@@ -160,7 +140,7 @@
           null
         ]
       },
-      "/Users/student/Documents/week 4/bookmark-manager2/bookmark-manager/spec/feature/bookmark_feature_spec.rb": {
+      "/Users/nicolakeys/Makers/Projects/xav-bookmarks/Bookmark-Manager/spec/feature/bookmark_feature_spec.rb": {
         "lines": [
           1,
           null,
@@ -222,13 +202,13 @@
           1,
           1,
           1,
-          0,
-          0,
+          1,
+          1,
           null,
           null
         ]
       }
     },
-    "timestamp": 1601047198
+    "timestamp": 1601049475
   }
 }
