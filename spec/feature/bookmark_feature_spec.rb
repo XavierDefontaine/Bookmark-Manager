@@ -51,3 +51,14 @@ feature 'Update a bookmark' do
   expect(page).to have_link('Banana', href: 'http://www.banana.com')
   end
 end
+
+feature 'Add a comment' do
+  scenario 'Add comment by a bookmark' do
+    add_urls
+    visit('/bookmarks')
+    click_button("Comment", :match => :first)
+    fill_in('comment', with: 'yo waddup')
+    click_button("Submit")
+    expect(page).to have_content('yo waddup')
+  end
+end

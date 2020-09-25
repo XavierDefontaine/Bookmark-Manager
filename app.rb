@@ -22,8 +22,12 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/bookmarks' do
-    flash[:notice] = "Incorrect URL." unless Bookmark.create(url: params[:url], title: params[:title])
-    redirect '/bookmarks'
+    if Bookmark.create(url: params[:url], title: params[:title])
+      redirect '/bookmarks'
+    else 
+      flash[:notice] = "Incorrect URL." 
+      redirect '/bookmarks/add'
+    end
   end
 
   delete '/bookmarks/:title' do
