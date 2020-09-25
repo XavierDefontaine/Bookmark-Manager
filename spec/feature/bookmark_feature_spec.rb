@@ -20,6 +20,13 @@ feature 'Add a new bookmark' do
     click_button("Submit")
     expect(page).to have_content "Apple"
   end
+  scenario 'Checks if the URL is valid' do
+    visit('/bookmarks/add')
+    fill_in('title', with: 'Apple')
+    fill_in('url', with: 'xxx.apple.com')
+    click_button("Submit")
+    expect(page).to have_content "Incorrect URL"
+  end
 end
 
 feature 'Delete a bookmark' do

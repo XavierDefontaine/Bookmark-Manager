@@ -11,11 +11,13 @@ describe 'create' do
       expect(bookmark.title).to eq 'Test Bookmark'
       expect(bookmark.url).to eq 'http://www.testbookmark.com'
     end
+
+    
 end
 
 describe '.all' do
   it 'returns a list of bookmarks' do
-    connection = PG.connect(dbname: 'bookmark_manager_test')
+    #connection = PG.connect(dbname: 'bookmark_manager_test')
  
     # Add the test data
     bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy")

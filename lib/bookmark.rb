@@ -25,7 +25,7 @@ class Bookmark
   end
 
   def self.delete(title:)
-    result = DatabaseConnection.query("DELETE FROM bookmarks WHERE title = '#{title}';")
+    DatabaseConnection.query("DELETE FROM bookmarks WHERE title = '#{title}';")
   end
 
   def self.update(id:, title:, url:)
