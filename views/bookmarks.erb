@@ -10,7 +10,7 @@
         <%= bookmark.title %>
 
       </a>
-      <%= @comments.each { |comment| comment.comment if comment.bookmark_id == bookmark.id } %>
+      <%= @comments.map { |comment| comment.comment if comment.bookmark_id == bookmark.id } %>
       <form action="/bookmarks/<%= bookmark.title %>" method="post">
       <input type='hidden' name='_method' value='DELETE'/>
       <input type='submit' value='Delete'/>
